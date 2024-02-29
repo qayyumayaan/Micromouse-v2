@@ -610,3 +610,14 @@ void backTrack() {
         }
     }
 }
+/*
+no way to remember walls
+power cycling reset the maze, but find a way to save it to a file
+backtracking can be improved
+maze datastructure is very space inefficient but it might be chill
+
+implement backtracking so it learns on way back. it is next step
+
+
+
+*/
