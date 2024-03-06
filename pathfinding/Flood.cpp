@@ -22,14 +22,9 @@ int maze[N][N] =
  {13, 12, 11, 10,  9, 8, 7, 6, 6, 7, 8,  9, 10, 11, 12, 13},  
  {14, 13, 12, 11, 10, 9, 8, 7, 7, 8, 9, 10, 11, 12, 13, 14}};
  
-std::stack<configuration> cellStack;
+std::stack<configuration> cellStack, deadendStack, pathTaken;
 openCells walls[N][N];
-configuration currentCfg;
-configuration poppedCfg;
-
-std::stack<configuration> deadendStack;
-
-std::stack<configuration> pathTaken;
+configuration currentCfg, poppedCfg;
 
 void initialize() {
     // set current configuration to (0, 0) facing N
