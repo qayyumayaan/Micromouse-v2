@@ -295,6 +295,16 @@ bool isValidMove(int newX, int newY) {
               (newX == 8 && newY == 7) || (newX == 8 && newY == 8)));
 }
 
+void pushValidMove(int newX, int newY, std::stack<configuration>& cellStack, configuration& pushCfg) {
+    if (isValidMove(newX, newY)) {
+        pushCfg.x = newX;
+        pushCfg.y = newY;
+        cellStack.push(pushCfg);
+        // std::cerr << "Pushed (" << pushCfg.x << ", " << pushCfg.y << ")";
+    }
+}
+
+
 
 
 /*
