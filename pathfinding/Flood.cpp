@@ -289,6 +289,12 @@ void checkNeigboringOpen(configuration poppedCfg) {
     return;
 }
 
+bool isValidMove(int newX, int newY) {
+    return (newX >= 0 && newX < N && newY >= 0 && newY < N &&
+            !((newX == 7 && newY == 7) || (newX == 7 && newY == 8) ||
+              (newX == 8 && newY == 7) || (newX == 8 && newY == 8)));
+}
+
 
 
 /*
