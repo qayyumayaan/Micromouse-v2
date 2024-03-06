@@ -54,5 +54,8 @@ void invertMaze(char goal);
 void mazePrintout();
 void runMaze(char goal);
 void backTrack();
+void adjustDirection(char desiredDirection);
+void pushValidMove(int newX, int newY, std::stack<configuration>& cellStack, configuration& pushCfg);
+bool isValidMove(int newX, int newY);
 
 #endif
