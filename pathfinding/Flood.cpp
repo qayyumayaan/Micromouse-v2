@@ -252,31 +252,36 @@ void checkNeigboringOpen(configuration poppedCfg) {
 
         configuration pushCfg = poppedCfg;
 
+        pushValidMove(x + 1, y, cellStack, pushCfg);
+        pushValidMove(x - 1, y, cellStack, pushCfg);
+        pushValidMove(x, y + 1, cellStack, pushCfg);
+        pushValidMove(x, y - 1, cellStack, pushCfg);
 
-        if(x+1 <= 15 && !((x+1==7 && y==7) || (x+1==7 && y==8) || (x+1==8 && y==7) || (x+1==8 && y==8))) {
-            pushCfg.x += 1;
-            cellStack.push(pushCfg);
-            // std::cerr << "Pushed (" << pushCfg.x << ", " << pushCfg.y << ")";
-            pushCfg.x -= 1;
-        }
-        if(x-1 >= 0 && !((x-1==7 && y==7) || (x-1==7 && y==8) || (x-1==8 && y==7) || (x-1==8 && y==8))) {
-            pushCfg.x -= 1;
-            cellStack.push(pushCfg);
-            // std::cerr << "Pushed (" << pushCfg.x << ", " << pushCfg.y << ")";
-            pushCfg.x += 1;
-        }
-        if(y+1 <= 15 && !((x==7 && y+1==7) || (x==7 && y+1==8) || (x==8 && y+1==7) || (x==8 && y+1==8))) {
-            pushCfg.y += 1;
-            cellStack.push(pushCfg);
-            // std::cerr << "Pushed (" << pushCfg.x << ", " << pushCfg.y << ")";
-            pushCfg.y -= 1;
-        }
-        if(y-1 >= 0 && !((x==7 && y-1==7) || (x==7 && y-1==8) || (x==8 && y-1==7) || (x==8 && y-1==8))) {
-            pushCfg.y -= 1;
-            cellStack.push(pushCfg);
-            // std::cerr << "Pushed (" << pushCfg.x << ", " << pushCfg.y << ")";
-            pushCfg.y += 1;
-        }
+
+        // if(x+1 <= 15 && !((x+1==7 && y==7) || (x+1==7 && y==8) || (x+1==8 && y==7) || (x+1==8 && y==8))) {
+        //     pushCfg.x += 1;
+        //     cellStack.push(pushCfg);
+        //     // std::cerr << "Pushed (" << pushCfg.x << ", " << pushCfg.y << ")";
+        //     pushCfg.x -= 1;
+        // }
+        // if(x-1 >= 0 && !((x-1==7 && y==7) || (x-1==7 && y==8) || (x-1==8 && y==7) || (x-1==8 && y==8))) {
+        //     pushCfg.x -= 1;
+        //     cellStack.push(pushCfg);
+        //     // std::cerr << "Pushed (" << pushCfg.x << ", " << pushCfg.y << ")";
+        //     pushCfg.x += 1;
+        // }
+        // if(y+1 <= 15 && !((x==7 && y+1==7) || (x==7 && y+1==8) || (x==8 && y+1==7) || (x==8 && y+1==8))) {
+        //     pushCfg.y += 1;
+        //     cellStack.push(pushCfg);
+        //     // std::cerr << "Pushed (" << pushCfg.x << ", " << pushCfg.y << ")";
+        //     pushCfg.y -= 1;
+        // }
+        // if(y-1 >= 0 && !((x==7 && y-1==7) || (x==7 && y-1==8) || (x==8 && y-1==7) || (x==8 && y-1==8))) {
+        //     pushCfg.y -= 1;
+        //     cellStack.push(pushCfg);
+        //     // std::cerr << "Pushed (" << pushCfg.x << ", " << pushCfg.y << ")";
+        //     pushCfg.y += 1;
+        // }
     }
 
     // std::cerr << "stack size: " << cellStack.size();
