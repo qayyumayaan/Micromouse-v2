@@ -603,14 +603,61 @@ void runMaze(char goal) {
     //E = +x
     //W = -x
 
-void backTrack() {
-    while(!pathTaken.empty()) {
-        int x = pathTaken.top().x;
-        int y = pathTaken.top().y;
-        pathTaken.pop();
+// void backTrack() {
+//     while(!pathTaken.empty()) {
+//         int x = pathTaken.top().x;
+//         int y = pathTaken.top().y;
+//         pathTaken.pop();
 
-        int xDiff = x - currentCfg.x;
-        int yDiff = y - currentCfg.y;
+//         int xDiff = x - currentCfg.x;
+//         int yDiff = y - currentCfg.y;
+
+//         if(yDiff == 1) {
+//             move('N');
+//         }
+//         if(yDiff == -1) {
+//             move('S');
+//         }
+//         if(xDiff == 1) {
+//             move('E');
+//         }
+//         if(xDiff == -1) {
+//             move('W');
+//         }
+//     }
+// }
+
+
+void backTrack() {
+    // Reverse the path to start from the last cell visited.
+    std::stack<configuration> reversePath;
+    while (!pathTaken.empty()) {
+        reversePath.push(pathTaken.top());
+        pathTaken.pop();
+    }
+
+    // Navigate back using the reversed path.
+    while (!reversePath.empty()) {
+        configuration nextCfg = reversePath.top();
+        reversePath.pop();
+
+        // Calculate differences in X and Y to determine the direction.
+        int dx = nextCfg.x - currentCfg.x;
+        int dy = nextCfg.y - currentCfg.y;
+
+        // Determine the direction based on the differences.
+        char direction;
+        if (dx == 1) direction = 'E';
+        else if (dx == -1) direction = 'W';
+        else if (dy == 1) direction = 'N';
+        else if (dy == -1) direction = 'S';
+        else continue; // If there is no difference, skip to the next iteration.
+
+        // Adjust the robot's direction before moving.
+        // adjustDirection(direction);
+        move(direction); // Use the existing move function that takes care of orientation and movement.
+    }
+}
 
         if(yDiff == 1) {
             move('N');
