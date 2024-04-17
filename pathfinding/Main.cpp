@@ -6,6 +6,7 @@
 
 #include "API.h"
 #include "Flood.h"
+#include "Map.h"
 using namespace std;
 
 // move function seems to only work in main function ._.
@@ -52,12 +53,32 @@ using namespace std;
 // as the mouse explores, it updates the values along its path. 
 
 
-
-
-
 void log(const std::string& text) {
     std::cerr << text << std::endl;
 }
+
+
+/**
+    Main to use 2020 code (aka Map.cpp)
+    You must modify the build command for this to work! Modify it to:
+    g++ -std=c++11 Map.cpp API.cpp Main.cpp
+**/
+
+// int main(int argc, char* argv[]) {
+//     log("Running...");
+//     API::setColor(0, 0, 'G');
+//     API::setText(0, 0, "abc");
+//     Map maze;
+//     maze.search(false);
+// }
+
+
+/**
+    Main to use Tommy's code (aka Flood.cpp)
+    You must modify the build command for this to work! Modify it to:
+    g++ -std=c++11 Flood.cpp API.cpp Main.cpp
+
+**/
 
 int main(int argc, char* argv[]) {
     log("Running...");
@@ -78,5 +99,3 @@ int main(int argc, char* argv[]) {
 //    backTrack();
     
 }
-
-
